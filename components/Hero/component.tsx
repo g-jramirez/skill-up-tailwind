@@ -33,6 +33,8 @@ export function Hero(props: IHeroProps) {
         .headings{
             @apply grid text-center justify-items-center content-center relative;
         }
+
+        
       `}</style>
     </>
   );
