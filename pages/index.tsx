@@ -1,33 +1,27 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-import { fetchEntries } from '@utils/contentfulPosts'
-
-import Header from '@components/Header'
-import Footer from '@components/Footer'
-import Post from '@components/Post'
+import Header from "components/Header";
+import Footer from "components/Footer";
+import { Hero } from "../components/Hero";
 
 export default function Home({ posts }) {
   return (
     <div className="container">
       <Head>
-        <title>Next + Contentful Starter</title>
+        <title>Next + Tailwind</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
 
       <main>
-        <Header />
-        <div className="posts">
-          {posts.map((p) => {
-            return <Post key={p.date} date={p.date} image={p.image.fields} title={p.title} />
-          })}
-        </div>
+        <Hero />
       </main>
 
       <Footer />
 
       <style jsx>{`
         .container {
-          height: 100vh;
+          min-height: 100vh;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -42,10 +36,6 @@ export default function Home({ posts }) {
           justify-content: center;
           align-items: center;
         }
-
-        .posts {
-          display: flex;
-        }
       `}</style>
 
       <style jsx global>{`
@@ -53,8 +43,9 @@ export default function Home({ posts }) {
         body {
           padding: 0;
           margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-            Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
         }
 
         * {
@@ -62,18 +53,11 @@ export default function Home({ posts }) {
         }
       `}</style>
     </div>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const res = await fetchEntries()
-  const posts = await res.map((p) => {
-    return p.fields
-  })
-
   return {
-    props: {
-      posts,
-    },
-  }
+    props: {},
+  };
 }

@@ -1,3 +1,7 @@
 export default function Header() {
-  return <h1 className="title">Next + Contentful Starter</h1>
+  return (
+    <header>
+      <h1 className="title">Next + Tailwind</h1>
+    </header>
+  );
 }
