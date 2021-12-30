@@ -3,6 +3,7 @@ import Head from "next/head";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import { Hero } from "../components/Hero";
+import { HeroWithCTAs } from "../components/HeroWithCTAs";
 
 export default function Home({ posts }) {
   return (
@@ -14,7 +15,9 @@ export default function Home({ posts }) {
       <Header />
 
       <main>
-        <Hero />
+        <HeroWithCTAs CTA1="Primary" CTA2="Secondary" url="#" />
+        <Hero leftAligned={true} />
+        <Hero leftAligned={false} />
       </main>
 
       <Footer />
@@ -26,6 +29,7 @@ export default function Home({ posts }) {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          margin: 0 auto;
         }
 
         main {
